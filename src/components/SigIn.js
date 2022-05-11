@@ -77,7 +77,7 @@ export default function SigIn(){
                     </div>
 
                     <button type="submit">Entrar</button>
-                    <Link to="/sig-up">Crie sua conta</Link>
+                    <Link to="/sign-up">Crie sua conta</Link>
                 </form>
                 </div>
                 <div className="banner" style={{ backgroundImage: `url(${banner})` }}>

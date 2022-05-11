@@ -42,13 +42,17 @@ const ContainerLogin = styled.main `
         font-size: 24px;
         border: 0px;
         border-radius: 3px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
 
+    input:focus{
+        outline: none;
     }
     
     input::placeholder{
         font-family: 'abel', sans-serif;
         font-size: 24px;
-        padding: 15px;
         color: #C9BBBB;
     }
 
@@ -88,6 +92,7 @@ const ContainerLogin = styled.main `
         font-family: 'abel', sans-serif;
         font-size: 22px;
         border-radius: 3px;
+        margin-top: 10px;
     }
 
     .banner{
@@ -105,9 +110,6 @@ const ContainerLogin = styled.main `
         color: black;
     }
 
-
-
-   
 `
 
 export default ContainerLogin
