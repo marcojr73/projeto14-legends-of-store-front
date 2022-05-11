@@ -10,6 +10,7 @@ import tresh from "../assets/images/tresh.png"
 import katarina from "../assets/images/tresh.png"
 import ashe from "../assets/images/ashe.png"
 import galio from "../assets/images/galio.png"
+import banner from "../assets/images/banner.png"
 
 export default function SigIn(){
 
@@ -42,36 +43,47 @@ export default function SigIn(){
     }
 
     return(
-        <ContainerLogin>
-            <h1> Sign in </h1>
-            <form onSubmit={logInUser}>
-                <input  type="text" 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="E-mail"
-                ></input>
+        <>
+            <ContainerLogin>
+                <div className="containerLeft">
+                <h1> Sign in </h1>
+                <form onSubmit={logInUser}>
+                    <input  type="text" 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="E-mail"
+                    ></input>
 
-                <input  type="password" 
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Senha"
-                ></input>
+                    <input  type="password" 
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Senha"
+                    ></input>
 
-                <div className="champions">
-                    <p>Escolha o seu campeão</p>
-                    <div className="pool">
-                        <img src={lux} alt="champion" />
-                        <img src={yasuo} alt="champion" />
-                        <img src={tresh} alt="champion" />
-                        <img src={katarina} alt="champion" />
-                        <img src={ashe} alt="champion" />
-                        <img src={galio} alt="champion" />
+                    <div className="champions">
+                        <p className="choice">Escolha o seu campeão</p>
+                        <div className="pool">
+                            <img src={lux} alt="champion" />
+                            <img src={yasuo} alt="champion" />
+                            <img src={tresh} alt="champion" />
+                            <img src={katarina} alt="champion" />
+                            <img src={ashe} alt="champion" />
+                            <img src={galio} alt="champion" />
+                            <img src={lux} alt="champion" />
+                            <img src={yasuo} alt="champion" />
+                            <img src={yasuo} alt="champion" />
+                            <img src={tresh} alt="champion" />
+                        </div>
                     </div>
-                </div>
 
-                <button type="submit">Entrar</button>
-                <Link to="/sig-in">Primeira vez? Cadastre-se!</Link>
-            </form>
-        </ContainerLogin>
+                    <button type="submit">Entrar</button>
+                    <Link to="/sig-up">Crie sua conta</Link>
+                </form>
+                </div>
+                <div className="banner" style={{ backgroundImage: `url(${banner})` }}>
+                    
+                </div>
+            </ContainerLogin>
+        </>
     )
 }
