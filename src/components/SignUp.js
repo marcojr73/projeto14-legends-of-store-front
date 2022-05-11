@@ -68,7 +68,7 @@ export default function SignUp(){
                         ></input>
 
                         <button type="submit">Cadastre-se</button>
-                        <Link to="/sig-in">Já tem uma conta? Faça o login</Link>
+                        <Link to="/">Já tem uma conta? Faça o login</Link>
                     </form>
                 </div>
                 <div className="banner" style={{ backgroundImage: `url(${banner})` }}>
