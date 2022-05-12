@@ -61,6 +61,10 @@ const ContainerLogin = styled.main `
         margin-bottom: 15px;
         background: #EAEAEA;
     }
+    
+    .ch{
+        border: 2px solid black;
+    }
 
     img{
         width: 60px;

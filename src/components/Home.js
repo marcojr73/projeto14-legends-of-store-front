@@ -1,5 +1,5 @@
 export default function Home(){
     return(
-        <h1>eu sou a tela de Home</h1>
+        <h1>eu sou a Home</h1>
     )
 }

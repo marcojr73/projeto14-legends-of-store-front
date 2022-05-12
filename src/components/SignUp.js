@@ -15,7 +15,7 @@ export default function SignUp(){
     const [ password, setPassword ] = useState("")
     const [ confirmPassword, setConfirmPassword] = ("")
     const navigate = useNavigate()
-    const url = "http://localhost:5000/participants"
+    const url = "http://localhost:5000/"
 
     function signUpUser(e){
         e.preventDefault()

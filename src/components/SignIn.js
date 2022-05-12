@@ -12,20 +12,24 @@ import ashe from "../assets/images/ashe.png"
 import galio from "../assets/images/galio.png"
 import banner from "../assets/images/banner.png"
 
-export default function SigIn(){
+export default function SignIn(){
 
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
+    const [ champion, setChampion ] = useState("")
+    const champions =  [ lux, yasuo, tresh, ashe, galio, lux, lux, lux, lux, lux]
     const navigate = useNavigate()
-    const url = "http://localhost:5000/participants"
+    const url = "http://localhost:5000/sign-in"
 
     function logInUser(e){
         e.preventDefault()
 
         const data = {
             email,
-            password
+            password,
+            champion
         }
+        console.log(data)
         
         const promisse = axios.post(url, data)
         promisse.then(response => {
@@ -63,16 +67,11 @@ export default function SigIn(){
                     <div className="champions">
                         <p className="choice">Escolha o seu campeão</p>
                         <div className="pool">
-                            <img src={lux} alt="champion" />
-                            <img src={yasuo} alt="champion" />
-                            <img src={tresh} alt="champion" />
-                            <img src={katarina} alt="champion" />
-                            <img src={ashe} alt="champion" />
-                            <img src={galio} alt="champion" />
-                            <img src={lux} alt="champion" />
-                            <img src={yasuo} alt="champion" />
-                            <img src={yasuo} alt="champion" />
-                            <img src={tresh} alt="champion" />
+                            {champions.map(champion => {
+                                return(
+                                    <img src={champion} onClick={()=>setChampion(champion)} alt="champion" />
+                                )
+                            })}
                         </div>
                     </div>
 
@@ -81,7 +80,6 @@ export default function SigIn(){
                 </form>
                 </div>
                 <div className="banner" style={{ backgroundImage: `url(${banner})` }}>
-                    
                 </div>
             </ContainerLogin>
         </>
