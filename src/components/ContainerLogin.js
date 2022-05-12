@@ -7,6 +7,14 @@ const ContainerLogin = styled.main `
     width: 100vw;
     display: flex;
 
+    .hidden{
+        display: none;
+    }
+
+    .warning{
+        color: red;
+    }
+
     .containerLeft{
         position: relative;
         display: flex;

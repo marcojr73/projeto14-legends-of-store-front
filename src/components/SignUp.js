@@ -12,6 +12,9 @@ export default function SignUp(){
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ confirmPassword, setConfirmPassword] = useState("")
+    const [correct, setCorrect] = useState(true);
+
+
     const navigate = useNavigate()
     const url = "http://localhost:5000/sign-up"
 
@@ -24,15 +27,22 @@ export default function SignUp(){
             password,
             confirmPassword
         }
+
+        if(password !== confirmPassword){
+            setCorrect(false)
+        }else{
+            setCorrect(true);
+            const promise = axios.post(url, data)
+            promise.then(response => {
+                navigate("/")
+            })
+            promise.catch(e => {
+                alert(e.response.data)
+                console.log(e)
+        })
+        }
+
         
-        const promise = axios.post(url, data)
-        promise.then(response => {
-            navigate("/")
-        })
-        promise.catch(e => {
-            alert(e.response.data)
-            console.log(e)
-        })
     }
 
     return(
@@ -64,10 +74,14 @@ export default function SignUp(){
 
                         <input  type="password" 
                                 value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                onChange={(e) =>
+                                    setConfirmPassword(e.target.value)}
                                 placeholder="Confirme sua senha"
                                 required
                         ></input>
+                        <p className={correct === true ? 'hidden' : 'warning'}>
+                            As senhas não coincidem!
+                        </p>
 
                         <button type="submit">Cadastre-se</button>
                         <Link to="/">Já tem uma conta? Faça o login</Link>
