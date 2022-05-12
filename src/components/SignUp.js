@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import ContainerLogin from './ContainerLogin';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
-import styled from "styled-components";
-
 
 import banner from "../assets/images/banner.png"
 
@@ -13,9 +11,9 @@ export default function SignUp(){
     const [ username, setUsername ] = useState("")
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
-    const [ confirmPassword, setConfirmPassword] = ("")
+    const [ confirmPassword, setConfirmPassword] = useState("")
     const navigate = useNavigate()
-    const url = "http://localhost:5000/participants"
+    const url = "http://localhost:5000/sign-up"
 
     function signUpUser(e){
         e.preventDefault()
@@ -27,11 +25,11 @@ export default function SignUp(){
             confirmPassword
         }
         
-        const promisse = axios.post(url, data)
-        promisse.then(response => {
+        const promise = axios.post(url, data)
+        promise.then(response => {
             navigate("/")
         })
-        promisse.catch(e => {
+        promise.catch(e => {
             alert(e.response.data)
             console.log(e)
         })
@@ -41,30 +39,34 @@ export default function SignUp(){
         <>
             <ContainerLogin>
                 <div className="containerLeft">
-                    <h1> Sign in </h1>
+                    <h1> Sign up </h1>
                     <form onSubmit={signUpUser}>
                         <input  type="text" 
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 placeholder="Username"
+                                required
                         ></input>
 
                         <input  type="email" 
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="E-mail"
+                                required
                         ></input>
 
                         <input  type="password" 
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Senha"
+                                required
                         ></input>
 
                         <input  type="password" 
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                                 placeholder="Confirme sua senha"
+                                required
                         ></input>
 
                         <button type="submit">Cadastre-se</button>

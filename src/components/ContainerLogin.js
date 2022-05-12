@@ -36,7 +36,7 @@ const ContainerLogin = styled.main `
         width: 342px;
         height: 44px;
         margin: auto;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         background: #EAEAEA;
         font-family: 'abel', sans-serif;
         font-size: 24px;
@@ -60,6 +60,7 @@ const ContainerLogin = styled.main `
         width: 342px;
         margin-bottom: 15px;
         background: #EAEAEA;
+        border-radius: 3px;
     }
 
     img{
@@ -93,6 +94,7 @@ const ContainerLogin = styled.main `
         font-size: 22px;
         border-radius: 3px;
         margin-top: 10px;
+        cursor: pointer;
     }
 
     .banner{
