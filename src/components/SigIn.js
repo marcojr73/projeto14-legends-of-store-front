@@ -10,7 +10,7 @@ import tresh from "../assets/images/tresh.png"
 import katarina from "../assets/images/tresh.png"
 import ashe from "../assets/images/ashe.png"
 import galio from "../assets/images/galio.png"
-import banner from "../assets/images/banner.png"
+import banner from "../assets/images/logscreen.gif"
 
 export default function SigIn(){
 

@@ -4,7 +4,7 @@ import ContainerLogin from './ContainerLogin';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 
-import banner from "../assets/images/banner.png"
+import banner from "../assets/images/logscreen.gif"
 
 
 export default function SignUp(){
