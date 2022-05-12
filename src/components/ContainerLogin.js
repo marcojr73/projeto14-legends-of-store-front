@@ -70,6 +70,10 @@ const ContainerLogin = styled.main `
         background: #EAEAEA;
         border-radius: 3px;
     }
+    
+    .ch{
+        border: 2px solid black;
+    }
 
     img{
         width: 60px;
