@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router';
 import lux from "../assets/images/lux.png"
 import yasuo from "../assets/images/yasuo.png"
 import tresh from "../assets/images/tresh.png"
-import katarina from "../assets/images/tresh.png"
 import ashe from "../assets/images/ashe.png"
 import galio from "../assets/images/galio.png"
 import banner from "../assets/images/banner.png"
@@ -17,7 +16,10 @@ export default function SignIn(){
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ champion, setChampion ] = useState("")
+    const [ css, setCss ] = useState();
     const champions =  [ lux, yasuo, tresh, ashe, galio, lux, lux, lux, lux, lux]
+
+
     const navigate = useNavigate()
     const url = "http://localhost:5000/sign-in"
 
@@ -46,6 +48,12 @@ export default function SignIn(){
         })
     }
 
+    function toggle(champion, index){
+        setChampion(champion)
+        setCss(index)
+        console.log(index)
+    }
+
     return(
         <>
             <ContainerLogin>
@@ -67,9 +75,10 @@ export default function SignIn(){
                     <div className="champions">
                         <p className="choice">Escolha o seu campeão</p>
                         <div className="pool">
-                            {champions.map(champion => {
+                            {champions.map((champion, index) => {
+                                const border = index == css ? "selected" : "" 
                                 return(
-                                    <img src={champion} onClick={()=>setChampion(champion)} alt="champion" />
+                                    <img src={champion} className={border}  onClick={()=> toggle(champion, index)} alt="champion" />
                                 )
                             })}
                         </div>

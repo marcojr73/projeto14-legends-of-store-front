@@ -70,6 +70,11 @@ const ContainerLogin = styled.main `
         background: #EAEAEA;
         border-radius: 3px;
     }
+
+    .selected{
+        border: 3px solid #FFD710;
+        border-radius: 0;
+    }
     
     .ch{
         border: 2px solid black;
@@ -77,6 +82,7 @@ const ContainerLogin = styled.main `
 
     img{
         width: 60px;
+        border-radius: 50%;
     }
 
     .choice{
