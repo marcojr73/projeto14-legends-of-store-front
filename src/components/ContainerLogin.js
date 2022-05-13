@@ -119,8 +119,7 @@ const ContainerLogin = styled.main `
         width: 100vw;
         height: 100vh;
         background-repeat: no-repeat;
-        background: contain;
-        height: 100vh;
+        background-size: cover;
     }
 
     a{
