@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import ContainerLogin from './ContainerLogin';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import styled from "styled-components";
+import UserContext from './UserContext';
+
+import img from "./../assets/images/ashe.png"
+
 
 export default function HomeLeft(){
     const [allItems, setAllItems] = useState([]);
+    const {selected, setSelected} = useContext(UserContext)
     
     useEffect(()=>{
         const promise = axios.get("http://localhost:5000/items")
@@ -16,47 +19,136 @@ export default function HomeLeft(){
         promise.catch(err => 
             console.log(err.response.data))
     }, [])
-
+    console.log(selected)
     return(
         <Container>
-            {allItems.map((item, id)=>{
+            <section className='starter-items'>
+                <h1>STARTER ITEMS</h1>
+                <div className='items'>
+                {allItems.map((item, id)=>{
+                    return(
+                        item.type === "starter" ?
+                        <Item key={id} onClick={() => {
+                            setSelected(item)
+                        }}>
+                            <img src={item.img} alt={item.id}></img>
+                            <p>{item.price}</p>
+                        </Item> :
+                        <></>
+                    )
+                })}
+                </div>
+            </section>
+            <section className='boots'>
+                <h1>BOOTS</h1>
+                <div className='items'>
+                {allItems.map((item, id)=>{
+                    return(
+                        item.type === "boots" ?
+                        <Item key={id} onClick={() => {
+                            setSelected(item)
+                        }}>
+                            <img src={item.img} alt={item.id}></img>
+                            <p>{item.price}</p>
+                        </Item> :
+                        <></>
+                    )
+                })}
+                </div>
+            </section>
+            <section className='legendary'>
+                <h1>LEGENDARY</h1>
+                <div className='items'>
+                {allItems.map((item, id)=>{
+                    return(
+                        item.type === "legendary" ?
+                        <Item key={id} onClick={() => {
+                            setSelected(item)
+                        }}>
+                            <img src={item.img} alt={item.id}></img>
+                            <p>{item.price}</p>
+                        </Item> :
+                        <></>
+                    )
+                })}
+                </div>
+            </section>
+            <section className='mythic'>
+                <h1>MYTHIC</h1>
+                <div className='items'>
+                {allItems.map((item, id)=>{
+                    return(
+                        item.type === "mythic" ?
+                        <Item key={id} onClick={() => {
+                            setSelected(item)
+                        }}>
+                            <img src={item.img} alt={item.id}></img>
+                            <p>{item.price}</p>
+                        </Item> :
+                        <></>
+                    )
+                })}
+                </div>
+            </section>
+
+            {/* {allItems.map((item, id)=>{
                 return(
-                    <Item key={id}>
-                        <img src={item.img}></img>
+                    <Item key={id} onClick={() => {
+                        setSelected(item)
+                    }}>
+                        <img src={item.img} alt={item.id}></img>
                         <p>{item.price}</p>
                     </Item>
                 )
-            })}
+            })} */}
         </Container>
     )
 }
 
 const Container = styled.div`
     width: 55vw;
-    padding: 50px 45px;
+    padding: 45px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    section{
+        margin: 15px 0;
+        h1{
+            font-family: 'Volkhov', sans-serif;
+            color: #C9C4B4;
+        }
+        div{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 `
 
-const Item = styled.div`
-    height: 100px;
-    width: 80px;
+const Item = styled.button`
+    height: 130px;
+    width: 95px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 20px;
-    background-color: gray;
+    justify-content: center;
+    margin: 0 10px;
+    border-radius: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
     img{
-        width: 80px;
-        height: 80px;
-        margin-bottom: 7px;
+        width: 70px;
+        height: 70px;
+        margin-bottom: 5px;
     }
     p{
         font-family: 'Volkhov';
-        font-size: 18
-        
-        px;
+        font-size: 17px;
         color: #FFD710;
+    }
+
+    &:hover{
+        background: rgba(0, 0, 0, 0.15);
     }
 `
 
