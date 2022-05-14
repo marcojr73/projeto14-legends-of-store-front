@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router';
 import styled from "styled-components";
 import HomeLeft from './HomeLeft';
 import HomeRight from './HomeRight';
+import { createGlobalStyle } from 'styled-components';
 
 export default function Home(){
     return(
@@ -24,8 +25,6 @@ export default function Home(){
 }
 
 const Container = styled.div`
-    width: 100vw;
-    height: 100vh;
     background: #13262F;
     .linha-horizontal{
         height: 3px;
@@ -34,7 +33,7 @@ const Container = styled.div`
 
     .content{
         display: flex;
-        height: 100vh;
+        /* height: 100vh; */
         background: #13262F;
     }
 `
@@ -56,14 +55,7 @@ const Content = styled.div`
     display: flex;
     .linha-vertical{
         width: 3px;
-        height: 100vh;
+        height: 100vw;
         background: #164D60;
     }
-`
-
-const Items = styled.div`
-    width: 55vw;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 40px 50px;
 `
