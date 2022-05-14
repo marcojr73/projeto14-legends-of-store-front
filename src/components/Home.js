@@ -25,6 +25,8 @@ export default function Home(){
 }
 
 const Container = styled.div`
+    width: 100vw;
+    height: 120vh;
     background: #13262F;
     .linha-horizontal{
         height: 3px;
@@ -33,7 +35,7 @@ const Container = styled.div`
 
     .content{
         display: flex;
-        /* height: 100vh; */
+        height: 100vh;
         background: #13262F;
     }
 `
