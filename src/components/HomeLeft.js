@@ -19,8 +19,10 @@ export default function HomeLeft(){
         promise.catch(err => 
             console.log(err.response.data))
     }, [])
-    console.log(selected)
     return(
+        selected.length == 0 ?
+            <h1>carregando</h1>
+        :
         <Container>
             <section className='starter-items'>
                 <h1>STARTER ITEMS</h1>
@@ -82,7 +84,7 @@ export default function HomeLeft(){
                         <Item key={id} onClick={() => {
                             setSelected(item)
                         }}>
-                            <img src={item.img} alt={item.id}></img>
+                            <img src={item.img}  alt={item.id}></img>
                             <p>{item.price}</p>
                         </Item> :
                         <></>

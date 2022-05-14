@@ -25,7 +25,7 @@ export default function Home(){
 
 const Container = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     background: #13262F;
     .linha-horizontal{
         height: 3px;
