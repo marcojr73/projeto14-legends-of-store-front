@@ -92,17 +92,6 @@ export default function HomeLeft(){
                 })}
                 </div>
             </section>
-
-            {/* {allItems.map((item, id)=>{
-                return(
-                    <Item key={id} onClick={() => {
-                        setSelected(item)
-                    }}>
-                        <img src={item.img} alt={item.id}></img>
-                        <p>{item.price}</p>
-                    </Item>
-                )
-            })} */}
         </Container>
     )
 }

@@ -32,12 +32,6 @@ const Container = styled.div`
         height: 3px;
         background: #164D60;
     }
-
-    .content{
-        display: flex;
-        height: 100vh;
-        background: #13262F;
-    }
 `
 
 const Top = styled.div`

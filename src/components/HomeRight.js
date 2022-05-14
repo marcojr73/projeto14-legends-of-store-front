@@ -23,7 +23,14 @@ export default function HomeRight() {
 
     return (
         selected.stats === undefined ?
-            <Bag></Bag>
+            <PurchaseDetails>
+                <Showcase>
+                    <div className='item'>
+
+                    </div>
+                </Showcase>
+                <Bag></Bag>
+            </PurchaseDetails>
         :
             <PurchaseDetails>
                 <Showcase>
@@ -34,11 +41,11 @@ export default function HomeRight() {
                         </div>
                         <div className='status'>
                             <p>{selected.name}</p>
-                           {selected.stats.map(stats => {
-                               return(
-                                   <li>{stats}</li>
-                               )
-                           })}
+                            {selected.stats.map(stats => {
+                                return(
+                                    <li>{stats}</li>
+                                )
+                            })}
                         </div>
                     </div>
                     <button onClick={() => addBag(selected) } className="comprar">Comprar</button>
@@ -98,7 +105,9 @@ const Showcase = styled.div`
     
     .status{
         width: 40%;
-        height: 50%;
+        height: 70%;
+        margin-top: 30px;
+        overflow-y: scroll;
         p{
             font-size: 32px;
             color: #FFD710;
