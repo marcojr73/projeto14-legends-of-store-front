@@ -16,12 +16,10 @@ export default function HomeRight() {
     const [ bag, setBag ] = useState([])
 
     function addBag(selected){
-        console.log(selected)
         bag.push(selected)
         setBag([...bag])
     }
 
-    console.log(selected)
 
     return (
         selected.stats === undefined ?
@@ -45,7 +43,7 @@ export default function HomeRight() {
                     </div>
                     <button onClick={() => addBag(selected) } className="comprar">Comprar</button>
                 </Showcase>
-                <Bag bag={bag} />
+                <Bag bag={bag} setBag={setBag} />
             </PurchaseDetails>
     )
 }

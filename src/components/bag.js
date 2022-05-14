@@ -1,28 +1,37 @@
-import tresh from "../assets/images/tresh.png"
+import UserContext from "./UserContext"
+import { useContext } from "react"
+
 import styled from "styled-components"
 
 
-export default function Bag({ bag }) {
+export default function Bag({ bag, setBag }) {
 
+    const {champion, setChampion} = useContext(UserContext)
     
+
+    function removeIten(index){
+        bag.splice(index, 1)
+        setBag([...bag])
+        console.log(bag)
+    }
 
     return (
         bag === undefined ?
-            <p></p>
+            <></>
             :
             <Cart>
                 <div className="profile">
                     <div className="buy">
-                        <img src={tresh} />
+                        <img src={champion} />
                         <p> 40 armadura </p>
                         <p> 20 poder de habilidade </p>
                         <p> 50 velocidade de ataque </p>
 
                     </div>
                     <ul className="bag">
-                        {bag.slice(-8).map(iten => {
+                        {bag.slice(-8).map((iten, index) => {
                             return (
-                                <li className="square"><img src={iten.img} /></li>
+                                <li onClick={() => removeIten(index) } className="square"><img src={iten.img} /></li>
                             )
                         })}
                     </ul>
