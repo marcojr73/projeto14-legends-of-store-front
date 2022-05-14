@@ -13,9 +13,10 @@ import SignUp from "./SignUp";
 export default function App() {
     const [selected, setSelected] = useState({});
     const [ champion, setChampion ] = useState([])
+    const [ bag, setBag ] = useState([])
 
     return (
-        <UserContext.Provider value={{selected, setSelected, champion, setChampion}}>
+        <UserContext.Provider value={{selected, setSelected, champion, setChampion, bag, setBag}}>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<SignIn />} > </Route>

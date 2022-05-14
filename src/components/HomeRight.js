@@ -13,7 +13,7 @@ import Bag from './bag';
 export default function HomeRight() {
 
     const { selected } = useContext(UserContext)
-    const [ bag, setBag ] = useState([])
+    const { bag, setBag } = useContext(UserContext)
 
     function addBag(selected){
         bag.push(selected)

@@ -2,11 +2,15 @@ import UserContext from "./UserContext"
 import { useContext } from "react"
 
 import styled from "styled-components"
+import Finish from "./Finish"
+import { useState } from "react/cjs/react.development"
 
 
-export default function Bag({ bag, setBag }) {
+export default function Bag() {
 
     const {champion, setChampion} = useContext(UserContext)
+    const { bag, setBag } = useContext(UserContext)
+    const [ confirm, setConfirm ] = useState(false)
     
 
     function removeIten(index){
@@ -17,27 +21,30 @@ export default function Bag({ bag, setBag }) {
 
     return (
         bag === undefined ?
-            <></>
+        <></>
             :
-            <Cart>
-                <div className="profile">
-                    <div className="buy">
-                        <img src={champion} />
-                        <p> 40 armadura </p>
-                        <p> 20 poder de habilidade </p>
-                        <p> 50 velocidade de ataque </p>
+            <>
+            <Finish confirm={confirm}></Finish>
+                <Cart>
+                    <div className="profile">
+                        <div className="buy">
+                            <img src={champion} />
+                            <p> 40 armadura </p>
+                            <p> 20 poder de habilidade </p>
+                            <p> 50 velocidade de ataque </p>
 
+                        </div>
+                        <ul className="bag">
+                            {bag.slice(-8).map((iten, index) => {
+                                return (
+                                    <li onClick={() => removeIten(index) } className="square"><img src={iten.img} /></li>
+                                )
+                            })}
+                        </ul>
                     </div>
-                    <ul className="bag">
-                        {bag.slice(-8).map((iten, index) => {
-                            return (
-                                <li onClick={() => removeIten(index) } className="square"><img src={iten.img} /></li>
-                            )
-                        })}
-                    </ul>
-                </div>
-                <button className="purchase">Finalizar Compra</button>
-            </Cart>
+                    <button onClick={()=>setConfirm(true)} className="purchase">Finalizar Compra</button>
+                </Cart>
+            </>
     )
 }
 
