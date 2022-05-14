@@ -2,7 +2,12 @@ import styled from "styled-components"
 import UserContext from "./UserContext"
 import { useContext } from "react"
 
-export default function Finish({confirm}){
+export default function Finish({confirm, setConfirm}){
+
+    function clear(){
+        setBag([])
+        setConfirm(false)
+    }
 
     const { bag, setBag } = useContext(UserContext)
     let price = 0
@@ -10,7 +15,7 @@ export default function Finish({confirm}){
     return(
         confirm ?
         <PopUp>
-            <ul><p className="title">Your Bag</p>
+            <ul><p className="title">Ticket</p>
                 {bag.slice(-8).map(iten => {
                     price += parseInt(iten.price);
                     return(
@@ -19,7 +24,7 @@ export default function Finish({confirm}){
                 })}
             <li className="result"> <p className="name">Total</p><p className="price">{price}</p> </li>
             </ul>
-            <button>Concluir</button>
+            <button onClick={() => clear()}>Concluir</button>
         </PopUp>
         :
         <></>

@@ -24,11 +24,11 @@ export default function Bag() {
         <></>
             :
             <>
-            <Finish confirm={confirm}></Finish>
+            <Finish confirm={confirm} setConfirm={setConfirm}></Finish>
                 <Cart>
                     <div className="profile">
                         <div className="buy">
-                            <img src={champion} />
+                            <img className="champion" src={champion} />
                             <ul className="stats">
                                 <li><img className="icon" src="https://www.mobafire.com/images/shards/axe.png"/></li>
                                 <li><img className="icon" src="https://www.mobafire.com/images/shards/heart.png"/></li>
@@ -76,6 +76,11 @@ const Cart = styled.div`
         justify-content: space-between;
     }
 
+
+    .champion{
+        width: 125px;
+    }
+
     .purchase{
         background: #396A82;
         border-radius: 6px;
@@ -111,7 +116,7 @@ const Cart = styled.div`
     }
 
     .icon{
-        width: 22px;
+        width: 18px;
     }
 
 `
