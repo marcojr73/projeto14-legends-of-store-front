@@ -10,16 +10,16 @@ export default function Finish({confirm}){
     return(
         confirm ?
         <PopUp>
-            <ul>Your Bag
+            <ul><p className="title">Your Bag</p>
                 {bag.slice(-8).map(iten => {
                     price += parseInt(iten.price);
                     return(
-                        <li> <p>{iten.name}</p><p>{iten.price}</p> </li>
+                        <li> <p className="name">{iten.name}</p><p className="price">{iten.price}</p> </li>
                     )
                 })}
+            <li className="result"> <p className="name">Total</p><p className="price">{price}</p> </li>
             </ul>
-            <p>{price}</p>
-            <button>Voltar para a home</button>
+            <button>Concluir</button>
         </PopUp>
         :
         <></>
@@ -28,20 +28,49 @@ export default function Finish({confirm}){
 
 const PopUp = styled.section `
     width: 20%;
-    height: 80%;
+    height: 60%;
     position: absolute;
     top: 10%;
     right: 0;
     left: 0;
     margin: auto;
-    background: #396A82;
+    background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    border: 3px solid #FFD710;
     border-radius: 5px;
 
-    li{
+    ul{
+        width: 80%;
         display: flex;
+        flex-direction: column;
+        font-family: 'Volkhov';
+        font-size: 28px;
+
+    }
+
+    .title{
+        align-self: center;
+        margin-bottom: 45px;
+    }
+
+    li{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .name{
+        color: black;
+    }
+
+    .price{
+        color: #FFD710;
+    }
+
+    .result{
+        margin-top: 80px;
     }
 `

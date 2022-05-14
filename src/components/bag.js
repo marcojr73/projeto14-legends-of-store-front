@@ -29,10 +29,14 @@ export default function Bag() {
                     <div className="profile">
                         <div className="buy">
                             <img src={champion} />
-                            <p> 40 armadura </p>
-                            <p> 20 poder de habilidade </p>
-                            <p> 50 velocidade de ataque </p>
-
+                            <ul className="stats">
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/axe.png"/></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/heart.png"/></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/ability/miss-fortune-double-up.png"/></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/diamond.png"/></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/circle.png"/></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/shield.png"/></li>
+                            </ul>
                         </div>
                         <ul className="bag">
                             {bag.slice(-8).map((iten, index) => {
@@ -99,6 +103,15 @@ const Cart = styled.div`
         justify-content: center;
         align-items: center;
         border-radius: 5px;
+    }
+
+    .stats{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .icon{
+        width: 22px;
     }
 
 `
