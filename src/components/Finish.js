@@ -11,7 +11,6 @@ export default function Finish({confirm, setConfirm}){
 
     const { bag, setBag } = useContext(UserContext)
     let price = 0
-    console.log(bag)
     return(
         confirm ?
         <PopUp>

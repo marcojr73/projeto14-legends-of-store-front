@@ -20,7 +20,6 @@ export default function HomeRight() {
         setBag([...bag])
     }
 
-
     return (
         selected.stats === undefined ?
             <Bag></Bag>
@@ -97,8 +96,7 @@ const Showcase = styled.div`
 
     
     .status{
-        width: 40%;
-        height: 50%;
+        width: 50%;
         p{
             font-size: 32px;
             color: #FFD710;
