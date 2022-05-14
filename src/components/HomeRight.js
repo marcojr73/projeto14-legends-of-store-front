@@ -20,7 +20,6 @@ export default function HomeRight() {
         setBag([...bag])
     }
 
-
     return (
         selected.stats === undefined ?
             <PurchaseDetails>

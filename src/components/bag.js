@@ -1,5 +1,5 @@
 import UserContext from "./UserContext"
-import { useContext } from "react"
+import { useContext, useEffect, useLayoutEffect } from "react"
 
 import styled from "styled-components"
 import Finish from "./Finish"
@@ -13,10 +13,26 @@ export default function Bag() {
     const [ confirm, setConfirm ] = useState(false)
     
 
+    let damage = 0;
+    let health = 0;
+    let critical = 0;
+    let power = 0;
+    let haste = 0;
+    let armor = 0;
+
+    bag.forEach(iten => {
+        damage += iten.allStats[0]   
+        health += iten.allStats[1]   
+        critical += iten.allStats[2]   
+        power += iten.allStats[3]   
+        haste += iten.allStats[4]   
+        armor += iten.allStats[5]   
+    
+    })
+
     function removeIten(index){
         bag.splice(index, 1)
         setBag([...bag])
-        console.log(bag)
     }
 
     return (
@@ -30,12 +46,12 @@ export default function Bag() {
                         <div className="buy">
                             <img className="champion" src={champion} />
                             <ul className="stats">
-                                <li><img className="icon" src="https://www.mobafire.com/images/shards/axe.png"/></li>
-                                <li><img className="icon" src="https://www.mobafire.com/images/shards/heart.png"/></li>
-                                <li><img className="icon" src="https://www.mobafire.com/images/ability/miss-fortune-double-up.png"/></li>
-                                <li><img className="icon" src="https://www.mobafire.com/images/shards/diamond.png"/></li>
-                                <li><img className="icon" src="https://www.mobafire.com/images/shards/circle.png"/></li>
-                                <li><img className="icon" src="https://www.mobafire.com/images/shards/shield.png"/></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/axe.png"/><p>{damage} Damage</p></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/heart.png"/><p>{health} Life</p></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/ability/miss-fortune-double-up.png"/><p>{critical} Critical</p></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/diamond.png"/><p>{power} Hability power</p></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/circle.png"/><p>{haste} Hability Haste</p></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/shield.png"/><p>{armor} Armor</p></li>
                             </ul>
                         </div>
                         <ul className="bag">
@@ -81,6 +97,11 @@ const Cart = styled.div`
         width: 125px;
     }
 
+    li{
+        display: flex;
+        color: white;
+    }
+
     .purchase{
         background: #396A82;
         border-radius: 6px;
@@ -116,6 +137,7 @@ const Cart = styled.div`
     }
 
     .icon{
+        margin-right: 8px;
         width: 18px;
     }
 
