@@ -68,7 +68,7 @@ export default function SignUp(){
                         <input  type="password" 
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Senha"
+                                placeholder="Password"
                                 required
                         ></input>
 
@@ -76,14 +76,14 @@ export default function SignUp(){
                                 value={confirmPassword}
                                 onChange={(e) =>
                                     setConfirmPassword(e.target.value)}
-                                placeholder="Confirme sua senha"
+                                placeholder="Confirm your password"
                                 required
                         ></input>
                         <p className={correct === true ? 'hidden' : 'warning'}>
                             As senhas não coincidem!
                         </p>
 
-                        <button type="submit">Cadastre-se</button>
+                        <button type="submit">Sign up</button>
                         <Link to="/">Já tem uma conta? Faça o login</Link>
                     </form>
                 </div>

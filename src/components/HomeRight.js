@@ -53,7 +53,7 @@ export default function HomeRight() {
                         }else{
                             addBag(selected)
                         }
-                        } } className="comprar">Comprar</button>
+                        } } className="comprar">Add to your bag</button>
                 </Showcase>
                 <Bag bag={bag} setBag={setBag} />
             </PurchaseDetails>
@@ -105,6 +105,9 @@ const Showcase = styled.div`
         border: none;
         width: 80%;
         height: 45px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #B1AA80;
     }
 
     

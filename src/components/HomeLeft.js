@@ -107,6 +107,7 @@ const Container = styled.div`
         h1{
             font-family: 'Volkhov', sans-serif;
             color: #C9C4B4;
+            margin-bottom: 5px;
         }
         div{
             display: flex;

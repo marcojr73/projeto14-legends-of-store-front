@@ -48,9 +48,9 @@ export default function Bag() {
                             <ul className="stats">
                                 <li><img className="icon" src="https://www.mobafire.com/images/shards/axe.png"/><p>{damage} Damage</p></li>
                                 <li><img className="icon" src="https://www.mobafire.com/images/shards/heart.png"/><p>{health} Life</p></li>
-                                <li><img className="icon" src="https://www.mobafire.com/images/ability/miss-fortune-double-up.png"/><p>{critical} Critical</p></li>
-                                <li><img className="icon" src="https://www.mobafire.com/images/shards/diamond.png"/><p>{power} Hability power</p></li>
-                                <li><img className="icon" src="https://www.mobafire.com/images/shards/circle.png"/><p>{haste} Hability Haste</p></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/ability/miss-fortune-double-up.png"/><p>{critical}% Critical Chance</p></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/diamond.png"/><p>{power} Ability Power</p></li>
+                                <li><img className="icon" src="https://www.mobafire.com/images/shards/circle.png"/><p>{haste} Ability Haste</p></li>
                                 <li><img className="icon" src="https://www.mobafire.com/images/shards/shield.png"/><p>{armor} Armor</p></li>
                             </ul>
                         </div>
@@ -62,7 +62,7 @@ export default function Bag() {
                             })}
                         </ul>
                     </div>
-                    <button onClick={()=>setConfirm(true)} className="purchase">Finalizar Compra</button>
+                    <button onClick={()=>setConfirm(true)} className="purchase">Buy now!</button>
                 </Cart>
             </>
     )
@@ -108,6 +108,9 @@ const Cart = styled.div`
         border: none;
         width: 80%;
         height: 45px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #B1AA80;
     }
 
     .bag{

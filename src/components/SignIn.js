@@ -74,11 +74,11 @@ export default function SignIn(){
                     <input  type="password" 
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Senha"
+                            placeholder="Passsword"
                     ></input>
 
                     <div className="champions">
-                        <p className="choice">Escolha o seu campeão</p>
+                        <p className="choice">Choose your champion</p>
                         <div className="pool">
                             {champions.map((champion, index) => {
                                 const border = index == css ? "selected" : "" 
@@ -89,8 +89,8 @@ export default function SignIn(){
                         </div>
                     </div>
 
-                    <button type="submit">Entrar</button>
-                    <Link to="/sign-up">Crie sua conta</Link>
+                    <button type="submit">Login</button>
+                    <Link to="/sign-up">Create an account</Link>
                 </form>
                 </div>
                 <div className="banner" style={{ backgroundImage: `url(${banner})` }}>
