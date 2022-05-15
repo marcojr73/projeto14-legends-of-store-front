@@ -129,6 +129,10 @@ const Cart = styled.div`
         justify-content: center;
         align-items: center;
         border-radius: 5px;
+        img{
+            width: 80px;
+            height: 80px;
+        }
     }
 
     .stats{

@@ -47,7 +47,13 @@ export default function HomeRight() {
                             })}
                         </div>
                     </div>
-                    <button onClick={() => addBag(selected) } className="comprar">Comprar</button>
+                    <button onClick={() => {
+                        if(bag.length === 8){
+                            return(alert("You've achieved the limit! Remove items from your bag to add more!"))
+                        }else{
+                            addBag(selected)
+                        }
+                        } } className="comprar">Comprar</button>
                 </Showcase>
                 <Bag bag={bag} setBag={setBag} />
             </PurchaseDetails>

@@ -26,7 +26,7 @@ export default function Home(){
 
 const Container = styled.div`
     width: 100vw;
-    height: 120vh;
+    height: calc(100vh+100px);
     background: #13262F;
     .linha-horizontal{
         height: 3px;
@@ -51,7 +51,7 @@ const Content = styled.div`
     display: flex;
     .linha-vertical{
         width: 3px;
-        height: 100vw;
+        height: 100vh;
         background: #164D60;
     }
 `

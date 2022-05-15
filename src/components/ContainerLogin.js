@@ -73,7 +73,7 @@ const ContainerLogin = styled.main `
 
     .selected{
         border: 3px solid #FFD710;
-        border-radius: 0;
+        border-radius: 50%;
     }
     
     .ch{
