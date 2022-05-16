@@ -7,17 +7,28 @@ import UserContext from './UserContext';
 import img from "./../assets/images/ashe.png"
 
 
+
 export default function HomeLeft(){
     const [allItems, setAllItems] = useState([]);
     const {selected, setSelected} = useContext(UserContext)
+
+    const navigate = useNavigate();
     
     useEffect(()=>{
+        // const config = {
+        //     headers: {
+        //         Authorization : `Bearer ${token}`
+        //     }
+        // }
         const promise = axios.get("http://localhost:5000/items")
         promise.then(response => {
             setAllItems(response.data);
         })
-        promise.catch(err => 
-            console.log(err.response.data))
+        promise.catch(err => {
+            alert(err.response.data);
+            navigate("/")
+        } 
+            )
     }, [])
     return(
         selected.length == 0 ?
