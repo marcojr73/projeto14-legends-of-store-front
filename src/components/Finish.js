@@ -7,6 +7,8 @@ export default function Finish({confirm, setConfirm}){
 
     const url = "http://localhost:5000/purchase"
     const token = JSON.parse(localStorage.getItem("token"))
+    const { email } =  useContext(UserContext)
+
     const { bag, setBag } = useContext(UserContext)
 
     function sendMail(){
@@ -17,16 +19,24 @@ export default function Finish({confirm, setConfirm}){
             }
         }
 
-        const promisse = axios.post(url, bag, config)
+        const data = {
+            bag,
+            email
+        }
+
+        const promisse = axios.post(url, data, config)
         promisse.then(response => {
             alert("compra concluida")
+            
         })
         promisse.catch(e => {
-            alert("erro")
+            alert("deu um erro")
         })
 
         setBag([])
         setConfirm(false)
+
+        
 
         
 
@@ -56,11 +66,11 @@ export default function Finish({confirm, setConfirm}){
 
 const Container = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 111vh;
     top: 0;
     right: 0;
     position: absolute;
-    background: rgba(0, 0, 0, 0.6)
+    background: rgba(0, 0, 0, 0.6);
 `
 
 const PopUp = styled.section `

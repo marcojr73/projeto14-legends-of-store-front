@@ -12,12 +12,13 @@ import banner from "../assets/images/logscreen.gif"
 
 export default function SignIn(){
 
-    const [ email, setEmail ] = useState("")
+    // const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ champions, setChampions ] = useState("")
     const [ css, setCss ] = useState();
     const [ load, setLoad ] = useState("Login")
     const [ champion, setChampion ] = useState([])
+    const { email, setEmail } =  useContext(UserContext)
     const url = "http://localhost:5000/sign-in"
 
     const navigate = useNavigate()
@@ -37,6 +38,8 @@ export default function SignIn(){
         promisse.then(response => {
             const locals = JSON.stringify(response.data.token)
             localStorage.setItem("token", locals)
+
+            setEmail(email)
 
             const handle = JSON.stringify(champion)
             localStorage.setItem("champion", handle)
