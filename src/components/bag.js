@@ -8,7 +8,8 @@ import { useState } from "react/cjs/react.development"
 
 export default function Bag() {
 
-    const {champion, setChampion} = useContext(UserContext)
+    const champion = JSON.parse(localStorage.getItem("champion"))
+
     const { bag, setBag } = useContext(UserContext)
     const [ confirm, setConfirm ] = useState(false)
     
@@ -27,7 +28,6 @@ export default function Bag() {
         power += iten.allStats[3]   
         haste += iten.allStats[4]   
         armor += iten.allStats[5]   
-    
     })
 
     function removeIten(index){

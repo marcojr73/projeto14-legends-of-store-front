@@ -1,15 +1,37 @@
 import styled from "styled-components"
 import UserContext from "./UserContext"
 import { useContext } from "react"
+import axios from "axios"
 
 export default function Finish({confirm, setConfirm}){
 
-    function clear(){
+    const url = "http://localhost:5000/purchase"
+    const token = JSON.parse(localStorage.getItem("token"))
+    const { bag, setBag } = useContext(UserContext)
+
+    function sendMail(){
+
+        const config = {
+            headers: {
+                Authorization : `Bearer ${token}`
+            }
+        }
+
+        const promisse = axios.post(url, bag, config)
+        promisse.then(response => {
+            alert("compra concluida")
+        })
+        promisse.catch(e => {
+            alert("erro")
+        })
+
         setBag([])
         setConfirm(false)
-    }
 
-    const { bag, setBag } = useContext(UserContext)
+        
+
+    }
+    
     let price = 0
     return(
         confirm ?
@@ -24,7 +46,7 @@ export default function Finish({confirm, setConfirm}){
                     })}
                 <li className="result"> <p className="name total">TOTAL</p><p className="price">{price}</p> </li>
                 </ul>
-                <button onClick={() => clear()}>Concluir</button>
+                <button onClick={() => sendMail()}>Concluir</button>
             </PopUp>
         </Container>
         :

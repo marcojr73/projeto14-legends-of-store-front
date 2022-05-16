@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 
 import banner from "../assets/images/logscreen.gif"
+import Loader from './Loader';
 
 
 export default function SignUp(){
@@ -13,13 +14,16 @@ export default function SignUp(){
     const [ password, setPassword ] = useState("")
     const [ confirmPassword, setConfirmPassword] = useState("")
     const [ correct, setCorrect ] = useState(true);
+    const [ load, setLoad ] = useState("Sign-up")
+    const url = "http://localhost:5000/sign-up"
 
 
     const navigate = useNavigate()
-    const url = "http://localhost:5000/sign-up"
 
     function signUpUser(e){
         e.preventDefault()
+
+        setLoad(<Loader/>)
 
         const data = {
             username,
@@ -37,6 +41,7 @@ export default function SignUp(){
                 navigate("/")
             })
             promise.catch(e => {
+                setLoad(<Loader/>)
                 alert(e.response.data)
                 console.log(e)
         })
@@ -83,7 +88,7 @@ export default function SignUp(){
                             As senhas não coincidem!
                         </p>
 
-                        <button type="submit">Sign up</button>
+                        <button type="submit">{load}</button>
                         <Link to="/">Já tem uma conta? Faça o login</Link>
                     </form>
                 </div>

@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import ContainerLogin from './ContainerLogin';
-import axios from 'axios';
-import { useNavigate } from 'react-router';
 import styled from "styled-components";
-import tresh from "../assets/images/tresh.png"
 import UserContext from './UserContext';
 import { useContext } from 'react';
 import Bag from './bag';
@@ -55,7 +50,7 @@ export default function HomeRight() {
                         }
                         } } className="comprar">Add to your bag</button>
                 </Showcase>
-                <Bag bag={bag} setBag={setBag} />
+                <Bag bag={bag} setBag={setBag}/>
             </PurchaseDetails>
     )
 }

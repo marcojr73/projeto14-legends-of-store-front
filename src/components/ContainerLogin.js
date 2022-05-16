@@ -72,7 +72,7 @@ const ContainerLogin = styled.main `
     }
 
     .selected{
-        border: 3px solid #FFD710;
+        border: 3px solid black;
         border-radius: 50%;
     }
     

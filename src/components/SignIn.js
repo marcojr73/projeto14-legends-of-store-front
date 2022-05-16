@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ContainerLogin from './ContainerLogin';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import Loader from './Loader';
 
 import banner from "../assets/images/logscreen.gif"
 
@@ -15,13 +16,16 @@ export default function SignIn(){
     const [ password, setPassword ] = useState("")
     const [ champions, setChampions ] = useState("")
     const [ css, setCss ] = useState();
-    const {champion, setChampion} = useContext(UserContext)
+    const [ load, setLoad ] = useState("Login")
+    const [ champion, setChampion ] = useState([])
+    const url = "http://localhost:5000/sign-in"
 
     const navigate = useNavigate()
-    const url = "http://localhost:5000/sign-in"
 
     function logInUser(e){
         e.preventDefault()
+
+        setLoad(<Loader/>)
 
         const data = {
             email,
@@ -33,11 +37,17 @@ export default function SignIn(){
         promisse.then(response => {
             const locals = JSON.stringify(response.data.token)
             localStorage.setItem("token", locals)
+
+            const handle = JSON.stringify(champion)
+            localStorage.setItem("champion", handle)
+
             navigate("/home")
         })
+
         promisse.catch(e => {
             alert(e.response.data)
             console.log(e)
+            setLoad("Login")
         })
     }
 
@@ -88,8 +98,7 @@ export default function SignIn(){
                             })}
                         </div>
                     </div>
-
-                    <button type="submit">Login</button>
+                    <button type="submit">{load}</button>
                     <Link to="/sign-up">Create an account</Link>
                 </form>
                 </div>

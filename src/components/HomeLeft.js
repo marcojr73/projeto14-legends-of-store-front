@@ -4,23 +4,25 @@ import { useNavigate } from 'react-router';
 import styled from "styled-components";
 import UserContext from './UserContext';
 
-import img from "./../assets/images/ashe.png"
 
 
 
 export default function HomeLeft(){
     const [allItems, setAllItems] = useState([]);
     const {selected, setSelected} = useContext(UserContext)
+    const token = JSON.parse(localStorage.getItem("token"))
+    const url = "http://localhost:5000/items"
 
     const navigate = useNavigate();
     
     useEffect(()=>{
-        // const config = {
-        //     headers: {
-        //         Authorization : `Bearer ${token}`
-        //     }
-        // }
-        const promise = axios.get("http://localhost:5000/items")
+        const config = {
+            headers: {
+                Authorization : `Bearer ${token}`
+            }
+        }
+        
+        const promise = axios.get(url, config)
         promise.then(response => {
             setAllItems(response.data);
         })
