@@ -19,7 +19,7 @@ export default function SignIn(){
     const [ load, setLoad ] = useState("Login")
     const [ champion, setChampion ] = useState([])
     const { email, setEmail } =  useContext(UserContext)
-    const url = "http://localhost:5000/sign-in"
+    const url = "https://legends-of-store.herokuapp.com/sign-in"
 
     const navigate = useNavigate()
 

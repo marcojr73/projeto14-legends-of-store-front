@@ -11,7 +11,7 @@ export default function HomeLeft(){
     const [allItems, setAllItems] = useState([]);
     const {selected, setSelected} = useContext(UserContext)
     const token = JSON.parse(localStorage.getItem("token"))
-    const url = "http://localhost:5000/items"
+    const url = "https://legends-of-store.herokuapp.com/items"
 
     const navigate = useNavigate();
     

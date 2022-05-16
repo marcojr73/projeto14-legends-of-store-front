@@ -5,7 +5,7 @@ import axios from "axios"
 
 export default function Finish({confirm, setConfirm}){
 
-    const url = "http://localhost:5000/purchase"
+    const url = " https://legends-of-store.herokuapp.com/purchase"
     const token = JSON.parse(localStorage.getItem("token"))
     const { email } =  useContext(UserContext)
 
@@ -30,16 +30,11 @@ export default function Finish({confirm, setConfirm}){
             
         })
         promisse.catch(e => {
-            alert("deu um erro")
+            alert("Email não enviado")
         })
 
         setBag([])
         setConfirm(false)
-
-        
-
-        
-
     }
     
     let price = 0

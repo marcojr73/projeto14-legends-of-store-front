@@ -15,7 +15,7 @@ export default function SignUp(){
     const [ confirmPassword, setConfirmPassword] = useState("")
     const [ correct, setCorrect ] = useState(true);
     const [ load, setLoad ] = useState("Sign-up")
-    const url = "http://localhost:5000/sign-up"
+    const url = "https://legends-of-store.herokuapp.com/sign-up"
 
 
     const navigate = useNavigate()
