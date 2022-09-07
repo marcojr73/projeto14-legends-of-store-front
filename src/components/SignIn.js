@@ -12,14 +12,14 @@ import banner from "../assets/images/logscreen.gif"
 
 export default function SignIn(){
 
-    // const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ champions, setChampions ] = useState("")
     const [ css, setCss ] = useState();
     const [ load, setLoad ] = useState("Login")
     const [ champion, setChampion ] = useState([])
     const { email, setEmail } =  useContext(UserContext)
-    const url = "https://legends-of-store.herokuapp.com/sign-in"
+    const url = `${process.env.REACT_APP_API_BASE_URL}/sign-in`
+    console.log(url)
 
     const navigate = useNavigate()
 
@@ -55,7 +55,7 @@ export default function SignIn(){
     }
 
     useEffect(()=>{
-        const promise = axios.get("http://localhost:5000/champions")
+        const promise = axios.get(`${process.env.REACT_APP_API_BASE_URL}/champions`)
         promise.then(response => {
             setChampions(response.data);
             console.log(response.data)

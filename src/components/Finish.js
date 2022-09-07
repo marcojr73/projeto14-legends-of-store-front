@@ -5,7 +5,7 @@ import axios from "axios"
 
 export default function Finish({confirm, setConfirm}){
 
-    const url = " https://legends-of-store.herokuapp.com/purchase"
+    const url = `${process.env.REACT_APP_API_BASE_URL}/purchase`
     const token = JSON.parse(localStorage.getItem("token"))
     const { email } =  useContext(UserContext)
 
