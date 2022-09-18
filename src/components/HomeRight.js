@@ -19,9 +19,7 @@ export default function HomeRight() {
         selected.stats === undefined ?
             <PurchaseDetails>
                 <Showcase>
-                    <div className='item'>
-
-                    </div>
+                    <div className='item'></div>
                 </Showcase>
                 <Bag></Bag>
             </PurchaseDetails>

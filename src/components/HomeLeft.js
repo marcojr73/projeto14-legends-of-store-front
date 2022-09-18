@@ -4,9 +4,6 @@ import { useNavigate } from 'react-router';
 import styled from "styled-components";
 import UserContext from './UserContext';
 
-
-
-
 export default function HomeLeft(){
     const [allItems, setAllItems] = useState([]);
     const {selected, setSelected} = useContext(UserContext)

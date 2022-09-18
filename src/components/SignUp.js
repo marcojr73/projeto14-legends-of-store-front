@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ContainerLogin from './ContainerLogin';
-import axios from 'axios';
 import { useNavigate } from 'react-router';
 
 import banner from "../assets/images/logscreen.gif"
 import Loader from './Loader';
+import axiosInstance from '../instances/api';
 
 
 export default function SignUp(){
@@ -15,7 +15,6 @@ export default function SignUp(){
     const [ confirmPassword, setConfirmPassword] = useState("")
     const [ correct, setCorrect ] = useState(true);
     const [ load, setLoad ] = useState("Sign-up")
-    const url = `${process.env.REACT_APP_API_BASE_URL}/sign-up`
 
 
     const navigate = useNavigate()
@@ -36,7 +35,7 @@ export default function SignUp(){
             setCorrect(false)
         }else{
             setCorrect(true);
-            const promise = axios.post(url, data)
+            const promise = axiosInstance.post('sign-up', data)
             promise.then(response => {
                 navigate("/")
             })

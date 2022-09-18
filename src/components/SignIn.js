@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router';
 import Loader from './Loader';
 
 import banner from "../assets/images/logscreen.gif"
+import axiosInstance from '../instances/api';
 
 export default function SignIn(){
 
@@ -18,7 +19,7 @@ export default function SignIn(){
     const [ load, setLoad ] = useState("Login")
     const [ champion, setChampion ] = useState([])
     const { email, setEmail } =  useContext(UserContext)
-    const url = `${process.env.REACT_APP_API_BASE_URL}/sign-in`
+    const url = '/sign-in'
     console.log(url)
 
     const navigate = useNavigate()
@@ -34,7 +35,7 @@ export default function SignIn(){
             champion
         }
         
-        const promisse = axios.post(url, data)
+        const promisse = axiosInstance.post(url, data)
         promisse.then(response => {
             const locals = JSON.stringify(response.data.token)
             localStorage.setItem("token", locals)
@@ -55,7 +56,7 @@ export default function SignIn(){
     }
 
     useEffect(()=>{
-        const promise = axios.get(`${process.env.REACT_APP_API_BASE_URL}/champions`)
+        const promise = axiosInstance.get('/champions')
         promise.then(response => {
             setChampions(response.data);
             console.log(response.data)

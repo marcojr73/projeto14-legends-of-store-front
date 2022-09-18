@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import ContainerLogin from './ContainerLogin';
-import axios from 'axios';
-import { useNavigate } from 'react-router';
 import styled from "styled-components";
 import HomeLeft from './HomeLeft';
 import HomeRight from './HomeRight';
-import { createGlobalStyle } from 'styled-components';
 
 export default function Home(){
     return(

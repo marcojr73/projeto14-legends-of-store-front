@@ -1,11 +1,11 @@
 import styled from "styled-components"
 import UserContext from "./UserContext"
 import { useContext } from "react"
-import axios from "axios"
+import axiosInstance from "../instances/api"
 
 export default function Finish({confirm, setConfirm}){
 
-    const url = `${process.env.REACT_APP_API_BASE_URL}/purchase`
+    const url = '/purchase'
     const token = JSON.parse(localStorage.getItem("token"))
     const { email } =  useContext(UserContext)
 
@@ -24,7 +24,7 @@ export default function Finish({confirm, setConfirm}){
             email
         }
 
-        const promisse = axios.post(url, data, config)
+        const promisse = axiosInstance.post(url, data, config)
         promisse.then(response => {
             alert("compra concluida")
             
