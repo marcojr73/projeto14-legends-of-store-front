@@ -8,7 +8,7 @@
 - Esta é uma aplicação inspirada no jogo League of Legends
 - Você pode fazer o login com o seu email, selecionar um campeão e comprar os seus itens
 
-- [Veja meu deploy na Vercel aqui](https://vercel.com/marcojr73/projeto14-legends-of-store-front)
+- [Veja meu deploy na Vercel aqui](https://projeto14-legends-of-store-front.vercel.app/)
 - [Veja meu repositório back end desta aplicação aqui](https://github.com/marcojr73/projeto14-legends-of-store-back)
 
 ***
